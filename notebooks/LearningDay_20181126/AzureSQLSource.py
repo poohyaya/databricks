@@ -23,19 +23,17 @@ display(df)
 
 # COMMAND ----------
 
-# CREATE TABLE using JDBC Driver
-%sql
-CREATE TABLE IF NOT EXISTS jdbcProduct
-USING org.apache.spark.sql.jdbc
-OPTIONS (
-  url "jdbc:sqlserver://kothkimpaasdb1.database.windows.net:1433;databasename=AdventureWorksLT",
-  dbtable "[SalesLT].[Product]",
-  user "pfesql",
-  password "Password1!@#"
-)
+# MAGIC %sql
+# MAGIC CREATE TABLE jdbcProduct
+# MAGIC USING org.apache.spark.sql.jdbc
+# MAGIC OPTIONS (
+# MAGIC   url "jdbc:sqlserver://kothkimpaasdb1.database.windows.net:1433;databasename=AdventureWorksLT",
+# MAGIC   dbtable "[SalesLT].[Product]",
+# MAGIC   user "pfesql",
+# MAGIC   password "Password1!@#"
+# MAGIC )
 
 # COMMAND ----------
 
-# Show CREATE TABLE statement
-%sql
-SHOW CREATE TABLE jdbcProduct
+# MAGIC %sql
+# MAGIC SELECT COUNT(*) FROM jdbcProduct;
