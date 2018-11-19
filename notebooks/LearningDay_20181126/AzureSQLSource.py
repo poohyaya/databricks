@@ -1,9 +1,9 @@
 # Databricks notebook source
 # Azure SQL Database Connection Info
-jdbcHostname = "kothkimpaasdb1.database.windows.net"
+jdbcHostname = ""
 jdbcDatabase = "AdventureWorksLT"
 jdbcUsername = "pfesql"
-jdbcPassword = "Password1!@#"
+jdbcPassword = ""
 jdbcPort = 1433
 jdbcUrl = "jdbc:sqlserver://{0}:{1};database={2}".format(jdbcHostname, jdbcPort, jdbcDatabase)
 connectionProperties = {
