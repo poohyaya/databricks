@@ -1,7 +1,22 @@
 # Databricks notebook source
-jdbcHostname = "tcp://kothkimpaasdb1.windows.databaes.net"
+# Azure SQL Database Connection Info
+jdbcHostname = "kothkimpaasdb1.database.windows.net"
 jdbcDatabase = "AdventureWorksLT"
-username = "pfesql"
-password = "Password1!@#"
+jdbcUsername = "pfesql"
+jdbcPassword = "Password1!@#"
 jdbcPort = 1433
-jdbcUrl = "jdbc:sqlserver://{0}:{1};database={2};user={3};password={4}".format(jdbcHostname, jdbcPort, jdbcDatabase, username, password)
+jdbcUrl = "jdbc:sqlserver://{0}:{1};database={2}".format(jdbcHostname, jdbcPort, jdbcDatabase)
+connectionProperties = {
+  "user" : jdbcUsername,
+  "password" : jdbcPassword,
+  "driver" : "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+}
+
+
+# COMMAND ----------
+
+# Push down query
+# pushdown query need as result set alias
+pushdown_query = "(SELECT * FROM SalesLT.Product) product"
+df = spark.read.jdbc(url=jdbcUrl, table=pushdown_query, properties=connectionProperties)
+display(df)
