@@ -27,10 +27,10 @@ display(df)
 # MAGIC CREATE TABLE jdbcProduct
 # MAGIC USING org.apache.spark.sql.jdbc
 # MAGIC OPTIONS (
-# MAGIC   url "jdbc:sqlserver://kothkimpaasdb1.database.windows.net:1433;databasename=AdventureWorksLT",
+# MAGIC   url "jdbc:sqlserver://.database.windows.net:1433;databasename=AdventureWorksLT",
 # MAGIC   dbtable "[SalesLT].[Product]",
 # MAGIC   user "pfesql",
-# MAGIC   password "Password1!@#"
+# MAGIC   password ""
 # MAGIC )
 
 # COMMAND ----------
